@@ -1,0 +1,5 @@
+[
+  { "id": "id-1", "text": "End react module", "completed": true },
+  { "id": "id-2", "text": "Gain junior profession", "completed": false },
+  { "id": "id-3", "text": "Break pentagon", "completed": false }
+]

@@ -1,0 +1,31 @@
+.list {
+  width: 300px;
+}
+
+.item {
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.completed {
+  background-color: green;
+}
+
+.item > p {
+  margin-right: 15px;
+}
+
+.item > button {
+  padding: 10px 5px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: transform 250ms linear;
+}
+
+.item > button:active {
+  transform: scale(1.1);
+}
