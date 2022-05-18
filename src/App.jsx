@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { generate } from "shortid";
-import { Route, Routes } from "react-router-dom";
 import TodoList from "./components/Todos/TodoList";
 import TodoEditor from "./components/Todos/TodoEditor";
 import Modal from "./components/Modal";
 import Filter from "./components/Todos/Filter";
 import Counter from "./components/Counter";
+import Stats from "./components/Todos/Stats";
 
 export default function App() {
   const [showModal, setShowModal] = useState(false);
@@ -15,6 +14,7 @@ export default function App() {
 
   return (
     <>
+      <Stats />
       <button type="button" onClick={toggleModal}>
         Open modal
       </button>
