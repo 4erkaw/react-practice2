@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { add } from "../../../redux/todos/todos-actions";
+import { todoActions } from "../../../redux/todos";
 
 export default function TodoEditor({ closeModal }) {
   const [text, setText] = useState("");
@@ -17,7 +17,7 @@ export default function TodoEditor({ closeModal }) {
       console.log("Zapolni pole suka");
       return;
     }
-    dispatch(add(text));
+    dispatch(todoActions.add(text));
     setText("");
     closeModal();
   };

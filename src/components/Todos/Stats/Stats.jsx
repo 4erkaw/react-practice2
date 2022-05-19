@@ -1,15 +1,12 @@
 import { useSelector } from "react-redux";
-import { getTodos } from "./../../../redux/todos/todos-selectors";
+import { todoSelectors } from "../../../redux/todos";
 
 export default function Stats() {
-  const total = useSelector(getTodos);
-  const completed = total.reduce(
-    (total, item) => (item.completed ? total + 1 : total),
-    0
-  );
+  const total = useSelector(todoSelectors.getTotalTodoCount);
+  const completed = useSelector(todoSelectors.getCompletedTodoCount);
   return (
     <div>
-      <p>Total: {total.length}</p>
+      <p>Total: {total}</p>
       <p>Completed: {completed}</p>
     </div>
   );

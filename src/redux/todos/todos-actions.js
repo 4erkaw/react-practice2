@@ -1,7 +1,7 @@
 import { generate } from "shortid";
 import { createAction } from "@reduxjs/toolkit";
 
-export const add = createAction("todos/Add", (text) => ({
+const add = createAction("todos/Add", (text) => ({
   payload: {
     id: generate(),
     text,
@@ -9,9 +9,13 @@ export const add = createAction("todos/Add", (text) => ({
   },
 }));
 
-export const remove = createAction("todos/Remove");
-export const changeFilter = createAction("todos/changeFilter");
-export const toggleCompleted = createAction("todos/toggleCompleted");
+const remove = createAction("todos/Remove");
+const changeFilter = createAction("todos/changeFilter");
+const toggleCompleted = createAction("todos/toggleCompleted");
+
+const todoActions = { add, remove, changeFilter, toggleCompleted };
+
+export default todoActions;
 
 // const add = (text) => ({
 //   type: types.ADD,

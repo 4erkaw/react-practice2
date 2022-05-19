@@ -1,11 +1,10 @@
 import s from "./TodoList.module.css";
 import Todo from "../Todo";
 import { useSelector, useDispatch } from "react-redux";
-import { remove, toggleCompleted } from "../../../redux/todos/todos-actions";
-import { getVisibleTodos } from "../../../redux/todos/todos-selectors";
+import { todoActions, todoSelectors } from "../../../redux/todos";
 
 export default function TodoList() {
-  const todos = useSelector(getVisibleTodos);
+  const todos = useSelector(todoSelectors.getVisibleTodos);
   const dispatch = useDispatch();
   return (
     <ul className={s.list}>
@@ -15,8 +14,10 @@ export default function TodoList() {
             <Todo
               text={text}
               completed={completed}
-              onDelete={() => dispatch(remove(id))}
-              onToggleCompleted={() => dispatch(toggleCompleted(id))}
+              onDelete={() => dispatch(todoActions.remove(id))}
+              onToggleCompleted={() =>
+                dispatch(todoActions.toggleCompleted(id))
+              }
             />
           </li>
         ))}

@@ -1,9 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeFilter } from "../../../redux/todos/todos-actions";
-import { getFilter } from "../../../redux/todos/todos-selectors";
+import { todoActions, todoSelectors } from "../../../redux/todos";
 
 export default function Filter() {
-  const value = useSelector(getFilter);
+  const value = useSelector(todoSelectors.getFilter);
   const dispatch = useDispatch();
   return (
     <label>
@@ -11,7 +10,7 @@ export default function Filter() {
       <input
         type="text"
         value={value}
-        onChange={(e) => dispatch(changeFilter(e.target.value))}
+        onChange={(e) => dispatch(todoActions.changeFilter(e.target.value))}
       />
     </label>
   );

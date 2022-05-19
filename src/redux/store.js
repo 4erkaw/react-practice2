@@ -10,7 +10,7 @@ import {
 } from "redux-persist";
 import todosReducer from "./todos/todos-reducer";
 import { configureStore } from "@reduxjs/toolkit";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 const myMiddleware = (store) => (next) => (action) => {
   console.log("My prosloyka", action);
@@ -24,7 +24,6 @@ const middleware = [
     },
   }),
   myMiddleware,
-  logger,
 ];
 
 export const store = configureStore({

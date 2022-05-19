@@ -1,18 +1,19 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import { add, remove, toggleCompleted, changeFilter } from "./todos-actions";
+import todoActions from "./todos-actions";
 
 const itemsReducer = createReducer([], {
-  [add]: (state, { payload }) => [...state, payload],
-  [remove]: (state, { payload }) => state.filter(({ id }) => id !== payload),
-  [toggleCompleted]: (state, { payload }) =>
+  [todoActions.add]: (state, { payload }) => [...state, payload],
+  [todoActions.remove]: (state, { payload }) =>
+    state.filter(({ id }) => id !== payload),
+  [todoActions.toggleCompleted]: (state, { payload }) =>
     state.map((todo) =>
       todo.id === payload ? { ...todo, completed: !todo.completed } : todo
     ),
 });
 
 const filterReducer = createReducer("", {
-  [changeFilter]: (state, { payload }) => payload,
+  [todoActions.changeFilter]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
